@@ -1,0 +1,60 @@
+/*
+Copyright 2020 Elkhan Ibrahimov
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+syntax = "proto3";
+
+package api;
+
+message SearchRq {
+    repeated string tags = 10;
+}
+
+message SearchRp {
+    repeated FileWithTags files = 10;
+}
+
+message FileWithTags {
+    string file = 10;
+    repeated string tags = 20;
+}
+
+message AddTag {
+    repeated string tags = 10;
+    repeated string files = 20;
+    bool overwrite = 30;
+}
+
+message Empty {
+
+}
+
+message AllTagsRp {
+    repeated string tags = 10;
+}
+
+message AllFilesRp {
+    repeated string files = 10;
+}
+
+service Stat {
+    rpc AllTags(Empty) returns (AllTagsRp) {}
+    rpc AllFiles(Empty) returns (AllFilesRp) {}
+}
+
+service Tag {
+    rpc Add (AddTag) returns (Empty) {}
+    rpc Search (SearchRq) returns (SearchRp) {}
+}
