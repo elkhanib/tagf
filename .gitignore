@@ -1,0 +1,14 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Ignore IDE folders
+.idea/
+.vscode/
+
+# Ignore protobuf generated code
+ds/tag.pb.go
+api/grpc.pb.go
