@@ -17,10 +17,10 @@ limitations under the License.
 package cmd
 
 import (
+	"github.com/elkhan-ibrahimov/tagf/common"
 	"github.com/elkhan-ibrahimov/tagf/ds"
 	"github.com/elkhan-ibrahimov/tagf/printer"
 	"github.com/elkhan-ibrahimov/tagf/storage"
-	"github.com/elkhan-ibrahimov/tagf/util"
 	"github.com/golang/protobuf/proto"
 )
 
@@ -86,7 +86,7 @@ func (s SearchCmd) Run() error {
 	}
 
 	for file, tags := range m {
-		t := util.FmtStringSlice(tags, ", ")
+		t := common.FmtStringSlice(tags, ", ")
 		printer.Success("%s -> %s\n", file, t)
 	}
 

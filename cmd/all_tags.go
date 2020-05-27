@@ -17,10 +17,10 @@ limitations under the License.
 package cmd
 
 import (
+	"github.com/elkhan-ibrahimov/tagf/common"
 	"github.com/elkhan-ibrahimov/tagf/ds"
 	"github.com/elkhan-ibrahimov/tagf/printer"
 	"github.com/elkhan-ibrahimov/tagf/storage"
-	"github.com/elkhan-ibrahimov/tagf/util"
 	"github.com/golang/protobuf/proto"
 )
 
@@ -67,6 +67,6 @@ func (s AllTagsCmd) Run() error {
 		return printer.Warning("you don't have any tag")
 	}
 
-	t := util.FmtStringSlice(tags, ", ")
+	t := common.FmtStringSlice(tags, ", ")
 	return printer.Success(t)
 }

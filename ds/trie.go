@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/elkhan-ibrahimov/tagf/util"
+	"github.com/elkhan-ibrahimov/tagf/common"
 )
 
 func (x *Trie) find(tag string) (*Node, int) {
@@ -116,13 +116,12 @@ func (x *Trie) AllTags() []string {
 func (x *Trie) AllFiles() []string {
 	files := make([]string, 0)
 	start := time.Now()
-	defer util.Elapsed("Trie.AllFiles()")
 	for _, node := range x.Node {
 		nodeFiles := node.AllFiles()
 
 		// file can have a multiple tags. so, I'm checking that this file is already exists in our list or not
 		for _, f := range nodeFiles {
-			if !util.ExistsInSlice(&files, f) {
+			if !common.ExistsInSlice(&files, f) {
 				files = append(files, f)
 			}
 		}

@@ -17,16 +17,17 @@ limitations under the License.
 package cmd
 
 import (
-	"github.com/elkhan-ibrahimov/tagf/errors"
-	"github.com/elkhan-ibrahimov/tagf/util"
 	"os"
 	"regexp"
+
+	"github.com/elkhan-ibrahimov/tagf/common"
+	"github.com/elkhan-ibrahimov/tagf/errors"
 )
 
 func checkFiles(files []string) error {
 	nonExistingFiles := make([]string, 0)
 	for i, f := range files {
-		absPath, err := util.AbsolutePath(f)
+		absPath, err := common.AbsolutePath(f)
 		if err != nil {
 			return errors.AbsolutePathError(err, f)
 		}

@@ -17,11 +17,12 @@ limitations under the License.
 package storage
 
 import (
-	"github.com/elkhan-ibrahimov/tagf/common"
-	"github.com/elkhan-ibrahimov/tagf/errors"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+
+	"github.com/elkhan-ibrahimov/tagf/common"
+	"github.com/elkhan-ibrahimov/tagf/errors"
 )
 
 // Save stores file in the storage

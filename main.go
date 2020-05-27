@@ -22,7 +22,6 @@ import (
 
 	"github.com/elkhan-ibrahimov/tagf/common"
 	"github.com/elkhan-ibrahimov/tagf/printer"
-	"github.com/elkhan-ibrahimov/tagf/util"
 )
 
 // Cmd bla bla
@@ -32,7 +31,6 @@ type Cmd interface {
 
 func main() {
 	c := parseArgs()
-	defer util.Elapsed("c.Run()")
 	if err := c.Run(); err != nil {
 		_ = printer.Error(err.Error())
 

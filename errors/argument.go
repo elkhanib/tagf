@@ -19,7 +19,8 @@ package errors
 import (
 	"errors"
 	"fmt"
-	"github.com/elkhan-ibrahimov/tagf/util"
+
+	"github.com/elkhan-ibrahimov/tagf/common"
 )
 
 const (
@@ -31,7 +32,7 @@ func InvalidTagError(tags []string) error {
 	if len(tags) == 0 {
 		return nil
 	}
-	s := util.FmtStringSlice(tags, " ")
+	s := common.FmtStringSlice(tags, " ")
 	return errors.New(fmt.Sprintf(msgInvalidTagError, s))
 }
 
@@ -39,6 +40,6 @@ func FileNotExistError(files []string) error {
 	if len(files) == 0 {
 		return nil
 	}
-	s := util.FmtStringSlice(files, "\n")
+	s := common.FmtStringSlice(files, "\n")
 	return errors.New(fmt.Sprintf(msgFileNotExistError, s))
 }

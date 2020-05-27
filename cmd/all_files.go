@@ -17,10 +17,10 @@ limitations under the License.
 package cmd
 
 import (
+	"github.com/elkhan-ibrahimov/tagf/common"
 	"github.com/elkhan-ibrahimov/tagf/ds"
 	"github.com/elkhan-ibrahimov/tagf/printer"
 	"github.com/elkhan-ibrahimov/tagf/storage"
-	"github.com/elkhan-ibrahimov/tagf/util"
 	"github.com/golang/protobuf/proto"
 )
 
@@ -47,7 +47,6 @@ func allFiles(s *AllFilesCmd) ([]string, error) {
 		return nil, err
 	}
 
-	defer util.Elapsed("currTags.AllFiles()")
 	return currTags.AllFiles(), nil
 }
 
@@ -68,6 +67,6 @@ func (s AllFilesCmd) Run() error {
 		return printer.Warning("you don't have tagged file")
 	}
 
-	t := util.FmtStringSlice(files, "\n")
+	t := common.FmtStringSlice(files, "\n")
 	return printer.Success(t)
 }
